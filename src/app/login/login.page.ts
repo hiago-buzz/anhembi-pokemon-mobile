@@ -16,7 +16,7 @@ constructor(private route: Router) { }
   }
 
   login() {
-    this.redirect('/tabs/tab1');
+    this.redirect('/tabs/pokedex');
   }
 
   redirectToCreate(){
