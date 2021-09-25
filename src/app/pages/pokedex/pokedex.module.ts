@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { PokedexPage } from './pokedex.page';
 
 import { PokedexPageRoutingModule } from './pokedex-routing.module';
+import {CardComponent} from '../../components/card/card.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { PokedexPageRoutingModule } from './pokedex-routing.module';
     FormsModule,
     PokedexPageRoutingModule
   ],
-  declarations: [PokedexPage]
+  declarations: [PokedexPage, CardComponent]
 })
 export class PokedexPageModule {}

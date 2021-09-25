@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { EquipePage } from './equipe.page';
 
 import { EquipePageRoutingModule } from './equipe-routing.module';
-
+import {CardComponent} from '../../components/card/card.component';
 @NgModule({
   imports: [
     IonicModule,
@@ -14,6 +14,6 @@ import { EquipePageRoutingModule } from './equipe-routing.module';
     FormsModule,
     EquipePageRoutingModule
   ],
-  declarations: [EquipePage]
+  declarations: [EquipePage,CardComponent]
 })
 export class EquipePageModule {}
