@@ -11,7 +11,15 @@ constructor(private route: Router) { }
 
   ngOnInit() {
   }
-  nextpage() {
-    this.route.navigate(['/tabs/tab1']);
+  redirect(page: string){
+    this.route.navigate([page]);
+  }
+
+  login() {
+    this.redirect('/tabs/tab1');
+  }
+
+  redirectToCreate(){
+    this.redirect('/cadastro');
   }
 }

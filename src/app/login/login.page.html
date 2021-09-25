@@ -1,24 +1,50 @@
 <ion-content color="primary" padding>
   <div text-center>
-    <ion-img src="./../assets/logo/Logo.png" ></ion-img>
+    <ion-img src="./../assets/logo/Logo.png"></ion-img>
   </div>
   <ion-card>
-
     <form #form="ngForm" (ngSubmit)="login(form)">
       <ion-grid>
         <ion-row color="primary" justify-content-center>
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
             <div padding>
               <ion-item>
-                <ion-input name="email" type="email" placeholder="Seu@email.com" ngModel required></ion-input>
+                <ion-input
+                  name="email"
+                  type="email"
+                  placeholder="Seu@email.com"
+                  ngModel
+                  required
+                ></ion-input>
               </ion-item>
               <ion-item>
-                <ion-input name="password" type="password" placeholder="Senha" ngModel required></ion-input>
+                <ion-input
+                  name="password"
+                  type="password"
+                  placeholder="Senha"
+                  ngModel
+                  required
+                ></ion-input>
               </ion-item>
             </div>
             <div padding>
-              <ion-button color="warning"  (click)="nextpage()" size="large" type="button" [disabled]="form.invalid" expand="block">Entrar</ion-button>
-              <ion-button fill="outline" size="medium" type="button" expand="block">Cadastrar</ion-button>
+              <ion-button
+                color="warning"
+                (click)="login()"
+                size="large"
+                type="button"
+                [disabled]="form.invalid"
+                expand="block"
+                >Entrar</ion-button
+              >
+              <ion-button
+                fill="outline"
+                (click)="redirectToCreate()"
+                size="medium"
+                type="button"
+                expand="block"
+                >Cadastrar</ion-button
+              >
             </div>
           </ion-col>
         </ion-row>
