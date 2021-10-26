@@ -25,4 +25,8 @@ export class CadastroPage implements OnInit {
   public cadastrarUsuario() {
     console.log('Aí cadastrou.');
   }
+
+  public resetForm() {
+    this.cadastro.reset();
+  }
 }
