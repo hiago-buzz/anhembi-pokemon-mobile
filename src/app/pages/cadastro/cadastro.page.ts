@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastro.page.scss'],
 })
 export class CadastroPage implements OnInit {
+  public cadastro: FormGroup = new FormGroup({
+    nome: new FormControl(),
+    email: new FormControl(),
+    apelido: new FormControl(),
+    dataNascimento: new FormControl(),
+    genero: new FormControl(),
+    pokemon: new FormControl(),
+    senha: new FormControl(),
+    confirmSenha: new FormControl(),
+  });
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  public cadastrarUsuario() {
+    console.log('Aí cadastrou.');
   }
-
 }

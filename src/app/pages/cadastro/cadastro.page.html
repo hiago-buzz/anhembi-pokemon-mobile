@@ -7,40 +7,40 @@
 <ion-content>
   <ion-card>
 
-    <form #form="ngForm" (ngSubmit)="login(form)">
+    <form [formGroup]="cadastro" (submit)="cadastrarUsuario()">
       <ion-grid>
         <ion-row color="primary" justify-content-center>
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
             <div padding>
               <ion-item>
-                <ion-input name="text" type="text" placeholder="Nome completo" ngModel required></ion-input>
+                <ion-input name="text" type="text" placeholder="Nome completo" formControlName="nome" required></ion-input>
               </ion-item>
 
               <ion-item>
-                <ion-input name="email" type="email" placeholder="seu@email.com" ngModel required></ion-input>
+                <ion-input name="email" type="email" placeholder="seu@email.com" formControlName="email" required></ion-input>
               </ion-item>
 
               <ion-item>
-                <ion-input name="text" type="text" placeholder="Apelido" ngModel required></ion-input>
+                <ion-input name="text" type="text" placeholder="Apelido" formControlName="apelido" required></ion-input>
               </ion-item>
 
               <ion-item>
                 <!-- <ion-label>Data de Nascimento</ion-label> -->
-                <ion-datetime value="" display-timezone="gmt" placeholder="Data de nascimento"></ion-datetime>
+                <ion-datetime value="" display-timezone="gmt" formControlName="dataNascimento" placeholder="Data de nascimento"></ion-datetime>
                 <!-- <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime> -->
               </ion-item>
 
               <ion-item>
-                <ion-select placeholder="Gênero">
+                <ion-select placeholder="Gênero" formControlName="genero">
                   <ion-select-option value="f">Feminino</ion-select-option>
                   <ion-select-option value="m">Masculino</ion-select-option>
-                  <ion-select-option value="m">Outro</ion-select-option>
+                  <ion-select-option value="o">Outro</ion-select-option>
                 </ion-select>
               </ion-item>
 
 
               <ion-item>
-                <ion-select placeholder="Selecione seu Pokemon favorito">
+                <ion-select placeholder="Selecione seu Pokémon favorito" formControlName="pokemon">
                   <ion-select-option value="f">Charmander</ion-select-option>
                   <ion-select-option value="m">Squirtle</ion-select-option>
                   <ion-select-option value="m">Bulbasaur</ion-select-option>
@@ -49,11 +49,11 @@
 
 
               <ion-item>
-                <ion-input name="password" type="password" placeholder="Senha" ngModel required></ion-input>
+                <ion-input name="password" type="password" formControlName="senha" placeholder="Senha" required></ion-input>
               </ion-item>
 
               <ion-item>
-                <ion-input name="password" type="password" placeholder="Confirmar senha" ngModel required></ion-input>
+                <ion-input name="password" type="password" placeholder="Confirmar senha" formControlName="confirmSenha" required></ion-input>
               </ion-item>
 
               <ion-item>
