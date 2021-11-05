@@ -3,7 +3,7 @@
     <ion-img src="./../assets/logo/Logo.png"></ion-img>
   </div>
   <ion-card>
-    <form #form="ngForm" (ngSubmit)="login(form)">
+    <form [formGroup]="loginForm" (submit)="login()">
       <ion-grid>
         <ion-row color="primary" justify-content-center>
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -13,7 +13,7 @@
                   name="email"
                   type="email"
                   placeholder="Seu@email.com"
-                  ngModel
+                  formControlName="email"
                   required
                 ></ion-input>
               </ion-item>
@@ -21,8 +21,8 @@
                 <ion-input
                   name="password"
                   type="password"
+                  formControlName="senha"
                   placeholder="Senha"
-                  ngModel
                   required
                 ></ion-input>
               </ion-item>
@@ -30,10 +30,8 @@
             <div padding>
               <ion-button
                 color="warning"
-                (click)="login()"
+                type="submit" 
                 size="large"
-                type="button"
-                [disabled]="form.invalid"
                 expand="block"
                 >Entrar</ion-button
               >

@@ -17,7 +17,6 @@ export class CadastroPage implements OnInit {
     apelido: new FormControl('', [Validators.required]),
     dataNascimento: new FormControl(null, [Validators.required]),
     genero: new FormControl('', [Validators.required]),
-    pokemon: new FormControl(null, [Validators.required]),
     senha: new FormControl('', [Validators.required]),
     confirmSenha: new FormControl('', [Validators.required]),
   });
@@ -59,5 +58,9 @@ export class CadastroPage implements OnInit {
 
   public resetForm() {
     this.cadastro.reset();
+  }
+
+  public voltar(){
+    this.route.navigate(['/']);
   }
 }

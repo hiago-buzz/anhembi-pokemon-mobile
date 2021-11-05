@@ -26,7 +26,7 @@
 
               <ion-item>
                 <!-- <ion-label>Data de Nascimento</ion-label> -->
-                <ion-datetime value="" displayFormat="MM/DD/YYYY formControlName="dataNascimento" placeholder="Data de nascimento"></ion-datetime>
+                <ion-datetime value="" displayFormat="MM/DD/YYYY" formControlName="dataNascimento" placeholder="Data de nascimento"></ion-datetime>
                 <!-- <ion-datetime " [(ngModel)]="myDate"></ion-datetime> -->
               </ion-item>
 
@@ -54,6 +54,7 @@
               <ion-button size="medium" type="submit" expand="block">Cadastrar</ion-button>
 
               <ion-button fill="outline" size="medium" type="button" expand="block" (click)="resetForm()">Limpar</ion-button>
+              <ion-button  color="warning" size="medium" type="button" expand="block" (click)="voltar()">Voltar</ion-button>
 
             </div>
 

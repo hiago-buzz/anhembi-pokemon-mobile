@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CadastroService } from 'src/app/services/cadastro/cadastro.service';
 
 @Component({
   selector: 'app-equipe',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class EquipePage {
 
-  constructor() {}
+  
+  constructor(private serviceCadastro: CadastroService) {
+  }
 
+  ngOnInit(){
+    this.serviceCadastro.existeLogin();
+  }
 }

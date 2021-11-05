@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CadastroService } from 'src/app/services/cadastro/cadastro.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -7,17 +9,39 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-constructor(private route: Router) { }
+  public loginForm: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    senha: new FormControl('', [Validators.required]),
+  });
 
-  ngOnInit() {
+  constructor(
+    private serviceCadastro: CadastroService, 
+    private route: Router) {
   }
+
+  ngOnInit() {}
   
   redirect(page: string){
     this.route.navigate([page]);
   }
 
   login() {
-    this.redirect('/tabs/pokedex');
+    const {email, senha} = this.loginForm.getRawValue();
+
+    if(!this.loginForm.valid){
+      alert("PREENCHA TODOS OS CAMPOS!")
+      return
+    }
+
+    const response = this.serviceCadastro.login(email, senha);
+
+    if(response){
+      this.redirect('/tabs/pokedex');
+      return
+    }
+    
+    alert("TENTE NOVAMENTE!")
+  
   }
 
   redirectToCreate(){

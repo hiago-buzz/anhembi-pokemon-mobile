@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CadastroService } from 'src/app/services/cadastro/cadastro.service';
 @Component({
   selector: 'app-perfil',
   templateUrl: 'perfil.page.html',
@@ -7,9 +9,27 @@ import { Router } from '@angular/router';
 })
 export class PerfilPage {
 
-  constructor(private route: Router) {}
+  private usuario: FormGroup = new FormGroup({
+    nome: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
+    apelido: new FormControl('', [Validators.required]),
+    dataNascimento: new FormControl(null, [Validators.required]),
+    genero: new FormControl('', [Validators.required]),
+  });
+
+  constructor(
+    private serviceCadastro: CadastroService, 
+    private route: Router) {
+      
+  }
+
+  ngOnInit(){
+    this.serviceCadastro.existeLogin();
+    const usuarioLogado = this.serviceCadastro.getUsuarioLogado();
+    this.usuario.patchValue(usuarioLogado);
+  }
 
   exit(){
-    this.route.navigate(['/']);
+    this.serviceCadastro.logout();
   }
 }

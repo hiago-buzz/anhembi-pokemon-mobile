@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
 @Injectable({
@@ -6,11 +7,11 @@ import { Storage } from '@ionic/storage';
 })
 export class CadastroService {
 
-  storage;
+
   usuarios = [];
   usuarioLogado = null;
 
-  constructor(storage: Storage) {
+  constructor(private storage: Storage, private route: Router) {
     this.storage = storage;
     this.storage.create();
     this.storage.get('usuariosStorage').then(usuariosStorage => this.usuarios.push(...usuariosStorage))
@@ -42,22 +43,37 @@ export class CadastroService {
     return usuarioEncontrado;
   }
 
-
   public buscar() {
     return this.usuarios;
   }
 
-  public logar(email: string, senha: string){
+  public login(email: string, senha: string){
     const usuario = this.buscarPorEmail(email);
-
     if(usuario){
       if(usuario.senha === senha){
         this.usuarioLogado = {...usuario};
+        console.log("this.usuarioLogado",this.usuarioLogado)
         return true;
       }
     }
 
     return false;
+  }
+
+  public logout(){
+    this.usuarioLogado = null;
+    this.route.navigate(['/']);
+  }
+
+  public existeLogin(){
+    if(this.usuarioLogado === null){
+      this.route.navigate(['/']);
+    }
+
+  }
+
+  public getUsuarioLogado(){
+    return this.usuarioLogado;
   }
 
 }
