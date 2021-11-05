@@ -16,7 +16,6 @@ export class CadastroService {
     this.storage.create();
     this.storage.get('usuariosStorage').then(usuariosStorage => this.usuarios.push(...usuariosStorage))
       .catch(() => this.storage.set('usuariosStorage', this.usuarios));
-      console.log(this.usuarios)
   }
 
   public salvar(usuario) {
@@ -30,8 +29,6 @@ export class CadastroService {
     }
 
     this.storage.set('usuariosStorage', [...this.usuarios, usuario])
-    this.storage.get('usuariosStorage').then(usuariosStorage => console.log(...usuariosStorage));
-
     this.usuarioLogado = {...usuario};
 
     return {
@@ -53,7 +50,6 @@ export class CadastroService {
     if(usuario){
       if(usuario.senha === senha){
         this.usuarioLogado = {...usuario};
-        console.log("this.usuarioLogado",this.usuarioLogado)
         return true;
       }
     }

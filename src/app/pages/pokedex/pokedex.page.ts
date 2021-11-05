@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CadastroService } from 'src/app/services/cadastro/cadastro.service';
+import { PokemonService } from 'src/app/services/pokemon/pokemon.service';
 
 @Component({
   selector: 'app-pokedex',
@@ -8,10 +9,12 @@ import { CadastroService } from 'src/app/services/cadastro/cadastro.service';
 })
 export class PokedexPage {
 
-  constructor(private serviceCadastro: CadastroService) {
+  lsPokemon; 
+  constructor(private serviceCadastro: CadastroService, private pokemon: PokemonService) {
   }
 
   ngOnInit(){
     this.serviceCadastro.existeLogin();
+    this.lsPokemon = this.pokemon.listaPokemon(); 
   }
 }
