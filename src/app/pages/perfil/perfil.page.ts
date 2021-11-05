@@ -15,6 +15,7 @@ export class PerfilPage {
     apelido: new FormControl('', [Validators.required]),
     dataNascimento: new FormControl(null, [Validators.required]),
     genero: new FormControl('', [Validators.required]),
+    bio: new FormControl('', [Validators.required]),
   });
 
   constructor(
@@ -36,5 +37,18 @@ export class PerfilPage {
   delete(){
     const { email } = this.usuario.getRawValue();
     this.serviceCadastro.delete(email);
+  }
+
+  editar(){
+    const form = this.usuario.getRawValue();
+
+    if(this.usuario.invalid){
+      alert("PREENCHA OS CAMPOS CORRETAMENTE!");
+      return
+    }
+
+    this.serviceCadastro.editar(form);
+
+    alert("EDITADO COM SUCESSO!")
   }
 }

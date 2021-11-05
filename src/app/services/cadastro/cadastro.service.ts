@@ -16,6 +16,7 @@ export class CadastroService {
     this.storage.create();
     this.storage.get('usuariosStorage').then(usuariosStorage => this.usuarios.push(...usuariosStorage))
       .catch(() => this.storage.set('usuariosStorage', this.usuarios));
+      console.log(this.usuarios)
   }
 
   public salvar(usuario) {
@@ -85,5 +86,13 @@ export class CadastroService {
     this.logout();
   }
 
+  public editar(perfil){
+    const usuarioEditado = {...this.usuarioLogado , ...perfil};
+    const outrosUsuarios = this.usuarios.filter(usuario => usuario.email !== perfil.email);
+
+    this.usuarios = [...outrosUsuarios, {...usuarioEditado}];
+    this.usuarioLogado = {...usuarioEditado};
+    this.storage.set('usuariosStorage', this.usuarios);
+  }
 }
 

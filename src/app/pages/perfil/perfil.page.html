@@ -46,11 +46,11 @@
             </ion-item>
 
             <ion-item>
-              <ion-textarea placeholder="Bio"></ion-textarea>
+              <ion-textarea placeholder="Bio" formControlName="bio"></ion-textarea>
             </ion-item>
      
             <div padding>
-              <ion-button size="medium" type="button" expand="block">Editar</ion-button>
+              <ion-button (click)="editar()" size="medium" type="button" expand="block">Editar</ion-button>
 
               <ion-button size="medium" color="danger" type="button" expand="block" (click)="delete()">Deletar Conta</ion-button>
 

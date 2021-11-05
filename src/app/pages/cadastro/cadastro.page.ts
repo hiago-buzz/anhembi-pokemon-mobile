@@ -19,6 +19,7 @@ export class CadastroPage implements OnInit {
     genero: new FormControl('', [Validators.required]),
     senha: new FormControl('', [Validators.required]),
     confirmSenha: new FormControl('', [Validators.required]),
+    bio: new FormControl('', [Validators.required]),
   });
 
   constructor(
