@@ -76,5 +76,14 @@ export class CadastroService {
     return this.usuarioLogado;
   }
 
+  public delete(email: string){
+    const usuarioRestantes = this.usuarios.filter(usuario => usuario.email !== email);
+
+    this.usuarios = [...usuarioRestantes];
+    this.storage.set('usuariosStorage', this.usuarios);
+
+    this.logout();
+  }
+
 }
 

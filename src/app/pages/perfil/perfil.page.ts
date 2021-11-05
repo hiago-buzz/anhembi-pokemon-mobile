@@ -32,4 +32,9 @@ export class PerfilPage {
   exit(){
     this.serviceCadastro.logout();
   }
+
+  delete(){
+    const { email } = this.usuario.getRawValue();
+    this.serviceCadastro.delete(email);
+  }
 }
