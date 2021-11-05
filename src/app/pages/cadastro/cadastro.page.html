@@ -26,8 +26,8 @@
 
               <ion-item>
                 <!-- <ion-label>Data de Nascimento</ion-label> -->
-                <ion-datetime value="" display-timezone="gmt" formControlName="dataNascimento" placeholder="Data de nascimento"></ion-datetime>
-                <!-- <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime> -->
+                <ion-datetime value="" displayFormat="MM/DD/YYYY formControlName="dataNascimento" placeholder="Data de nascimento"></ion-datetime>
+                <!-- <ion-datetime " [(ngModel)]="myDate"></ion-datetime> -->
               </ion-item>
 
               <ion-item>
@@ -37,16 +37,6 @@
                   <ion-select-option value="o">Outro</ion-select-option>
                 </ion-select>
               </ion-item>
-
-
-              <ion-item>
-                <ion-select placeholder="Selecione seu Pokémon favorito" formControlName="pokemon">
-                  <ion-select-option value="f">Charmander</ion-select-option>
-                  <ion-select-option value="m">Squirtle</ion-select-option>
-                  <ion-select-option value="m">Bulbasaur</ion-select-option>
-                </ion-select>
-              </ion-item>
-
 
               <ion-item>
                 <ion-input name="password" type="password" formControlName="senha" placeholder="Senha" required></ion-input>

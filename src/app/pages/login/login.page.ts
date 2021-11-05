@@ -11,6 +11,7 @@ constructor(private route: Router) { }
 
   ngOnInit() {
   }
+  
   redirect(page: string){
     this.route.navigate([page]);
   }
