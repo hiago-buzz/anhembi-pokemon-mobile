@@ -19,8 +19,7 @@ export class PokedexPage {
   }
 
   filtrar(){
-    // console.log(this.nomePokemon);
-    // return
+    
     console.log(this.lsPokemonTotal);
     
     if(!this.nomePokemon){
