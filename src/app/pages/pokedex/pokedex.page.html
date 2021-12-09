@@ -10,7 +10,7 @@
       <ion-title size="large">Pokedex</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-searchbar placeholder="Nome Pokemon"></ion-searchbar>
+  <ion-input type="text" placeholder="Nome Pokemon" [(ngModel)]="nomePokemon" (input)="filtrar()"></ion-input>
   <ion-grid>
     <ion-row *ngFor="let pokemon of lsPokemon">
       <ion-card>
