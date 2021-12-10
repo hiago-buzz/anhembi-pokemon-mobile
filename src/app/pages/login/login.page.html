@@ -1,0 +1,52 @@
+<ion-content color="primary" padding>
+  <div text-center>
+    <ion-img src="./../assets/logo/Logo.png"></ion-img>
+  </div>
+  <ion-card>
+    <form [formGroup]="loginForm" (submit)="login()">
+      <ion-grid>
+        <ion-row color="primary" justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div padding>
+              <ion-item>
+                <ion-input
+                  name="email"
+                  type="email"
+                  placeholder="Seu@email.com"
+                  formControlName="email"
+                  required
+                ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input
+                  name="password"
+                  type="password"
+                  formControlName="senha"
+                  placeholder="Senha"
+                  required
+                ></ion-input>
+              </ion-item>
+            </div>
+            <div padding>
+              <ion-button
+                color="warning"
+                type="submit" 
+                size="large"
+                expand="block"
+                >Entrar</ion-button
+              >
+              <ion-button
+                fill="outline"
+                (click)="redirectToCreate()"
+                size="medium"
+                type="button"
+                expand="block"
+                >Cadastrar</ion-button
+              >
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-card>
+</ion-content>

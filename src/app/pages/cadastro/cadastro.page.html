@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <form [formGroup]="cadastro" (submit)="cadastrarUsuario()">
+      <ion-grid>
+        <ion-row color="primary" justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div padding>
+              <ion-item>
+                <ion-input name="text" type="text" placeholder="Nome completo" formControlName="nome" required></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-input name="email" type="email" placeholder="seu@email.com" formControlName="email" required></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-input name="text" type="text" placeholder="Apelido" formControlName="apelido" required></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <!-- <ion-label>Data de Nascimento</ion-label> -->
+                <ion-datetime value="" displayFormat="MM/DD/YYYY" formControlName="dataNascimento" placeholder="Data de nascimento"></ion-datetime>
+                <!-- <ion-datetime " [(ngModel)]="myDate"></ion-datetime> -->
+              </ion-item>
+
+              <ion-item>
+                <ion-select placeholder="Gênero" formControlName="genero">
+                  <ion-select-option value="f">Feminino</ion-select-option>
+                  <ion-select-option value="m">Masculino</ion-select-option>
+                  <ion-select-option value="o">Outro</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-input name="password" type="password" formControlName="senha" placeholder="Senha" required></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-input name="password" type="password" placeholder="Confirmar senha" formControlName="confirmSenha" required></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-textarea placeholder="Bio" formControlName="bio"></ion-textarea>
+              </ion-item>
+            </div>
+            <div padding>
+              <ion-button size="medium" type="submit" expand="block">Cadastrar</ion-button>
+
+              <ion-button fill="outline" size="medium" type="button" expand="block" (click)="resetForm()">Limpar</ion-button>
+              <ion-button  color="warning" size="medium" type="button" expand="block" (click)="voltar()">Voltar</ion-button>
+
+            </div>
+
+            <div padding>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-card>
+
+</ion-content>
