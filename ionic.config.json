@@ -1,5 +1,8 @@
 {
   "name": "anhembi-pokemon-mobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }
